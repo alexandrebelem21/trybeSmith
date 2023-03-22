@@ -6,6 +6,11 @@ const createProduct = async (req: Request, res: Response) => {
   return res.status(201).json(newProduct);
 };
 
-const productController = { createProduct };
+const getAll = async (req: Request, res: Response) => {
+  const allProducts = await productsService.getAll();
+  return res.status(200).json(allProducts);
+};
+
+const productController = { createProduct, getAll };
 
 export default productController;
